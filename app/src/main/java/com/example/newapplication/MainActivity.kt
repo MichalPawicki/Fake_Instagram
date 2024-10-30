@@ -72,6 +72,7 @@ class MainActivity : ComponentActivity() {
                     }
                 },
                     bottomBar = {
+
                         BottomAppBar(
                             modifier = Modifier
                                 .background(Color.Red)
