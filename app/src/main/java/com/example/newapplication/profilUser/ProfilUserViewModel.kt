@@ -14,6 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfilUserViewModel @Inject constructor(private val userService: UserService) : ViewModel() {
 
+    //Retrieving data from UserService ApiResponse for a specific user
     var state: ProfileState by mutableStateOf(
         ProfileState(
             "",
@@ -47,6 +48,7 @@ class ProfilUserViewModel @Inject constructor(private val userService: UserServi
 
 }
 
+// storing properties in ProfileState
 data class ProfileState(
     val name: String,
     val surname: String,

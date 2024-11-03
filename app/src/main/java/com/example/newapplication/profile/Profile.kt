@@ -33,7 +33,7 @@ fun Profile() {
     val viewModel = hiltViewModel<ProfileViewModel>()
 
 
-
+//the appearance of the profile
     Column(
         modifier = Modifier
             .fillMaxSize()

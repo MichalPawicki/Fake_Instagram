@@ -15,8 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class ContactViewModel @Inject constructor(private val userService: UserService) : ViewModel() {
 
-    private lateinit var listOfUsers: UserServiceApiResponse
+    //downloading contact data, creating a contact list and filtering the contact list
 
+    private lateinit var listOfUsers: UserServiceApiResponse
 
     var state: ContactState by mutableStateOf(ContactState())
 

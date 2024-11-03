@@ -32,6 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.material3.Text as Text
 
 
+//downloading contact data from Contact ViewModel, creating searchBar and creating contact list
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun Contacts(name: () -> Unit) {
@@ -59,14 +60,14 @@ fun Contacts(name: () -> Unit) {
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
             trailingIcon = { Icon(Icons.Default.MoreVert, contentDescription = null) })
         Column(modifier = Modifier.fillMaxSize()) {
-            ListOfContacts(viewModel.state.list, {name()})
+            ListOfContacts(viewModel.state.list) { name() }
         }
 
     }
 
 }
 
-// 
+// inserting a single contact into the contact list
 @Composable
 fun ListOfContacts(contacts: List<Contact>, name: () -> Unit) {
     LazyColumn(
@@ -79,6 +80,7 @@ fun ListOfContacts(contacts: List<Contact>, name: () -> Unit) {
     }
 }
 
+//single contact appearance
 @Composable
 fun ContactItem(contact: Contact, name: () -> Unit ) {
     Card(

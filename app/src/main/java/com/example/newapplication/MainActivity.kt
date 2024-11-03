@@ -66,13 +66,15 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("profile") { Profile() }
                             composable<Profile> { ProfilUser() }
-                            composable("contacts") { Contacts({ navController.navigate(Profile("dupa")) }) }
+                            composable("contacts") { Contacts({ navController.navigate(Profile("user")) }) }
 
                         }
                     }
                 },
-                    bottomBar = {
 
+                    // the appearance of the bottom application bar
+
+                    bottomBar = {
                         BottomAppBar(
                             modifier = Modifier
                                 .background(Color.Red)
