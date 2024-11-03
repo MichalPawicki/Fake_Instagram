@@ -27,6 +27,7 @@ class ProfileViewModel @Inject constructor(private val userService: UserService)
         )
     )
 
+    //getting properties from UserService ApiResponse
     init {
         viewModelScope.launch {
             val userInfo = userService.getUser()
@@ -47,6 +48,7 @@ class ProfileViewModel @Inject constructor(private val userService: UserService)
 
 }
 
+// storing properties in ProfileState
 data class ProfileState(
     val name: String,
     val surname: String,
