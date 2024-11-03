@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
+// Downloading API data from randomuser.me
 @HiltAndroidApp
 class HiltApplication : Application() {
 

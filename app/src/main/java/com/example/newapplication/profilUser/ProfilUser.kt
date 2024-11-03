@@ -32,7 +32,7 @@ fun ProfilUser() {
     val viewModel = hiltViewModel<ProfilUserViewModel>()
 
 
-
+    //the appearance of a given user's profile (similar like Profile.kt)
     Column(
         modifier = Modifier
             .fillMaxSize()
