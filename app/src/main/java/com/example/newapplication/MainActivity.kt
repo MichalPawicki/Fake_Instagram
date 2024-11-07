@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("profile") { Profile() }
                             composable<Profile> { ProfilUser() }
-                            composable("contacts") { Contacts({ navController.navigate(Profile("user")) }) }
+                            composable("contacts") { Contacts({ navController.navigate(Profile(it.name)) }) }
 
                         }
                     }

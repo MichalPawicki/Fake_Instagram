@@ -100,19 +100,6 @@ fun ProfilUser() {
                     .align(Alignment.Start)
                     .padding(bottom = 5.dp),
 
-                text = "Birthday:", fontSize = 20.sp, fontWeight = FontWeight.Bold
-            )
-            Text(
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(bottom = 15.dp),
-                text = viewModel.state.birthday
-            )
-            Text(
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(bottom = 5.dp),
-
                 text = "Phone:", fontSize = 20.sp, fontWeight = FontWeight.Bold
             )
             Text(

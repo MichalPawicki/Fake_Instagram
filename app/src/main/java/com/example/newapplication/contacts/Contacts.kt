@@ -35,7 +35,7 @@ import androidx.compose.material3.Text as Text
 //downloading contact data from Contact ViewModel, creating searchBar and creating contact list
 @SuppressLint("UnrememberedMutableState")
 @Composable
-fun Contacts(name: () -> Unit) {
+fun Contacts(name: (contact: Contact) -> Unit) {
     val viewModel = hiltViewModel<ContactViewModel>()
 
     var text by remember { mutableStateOf("") }
@@ -60,7 +60,7 @@ fun Contacts(name: () -> Unit) {
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
             trailingIcon = { Icon(Icons.Default.MoreVert, contentDescription = null) })
         Column(modifier = Modifier.fillMaxSize()) {
-            ListOfContacts(viewModel.state.list) { name() }
+            ListOfContacts(viewModel.state.list) { name(it) }
         }
 
     }
@@ -69,13 +69,13 @@ fun Contacts(name: () -> Unit) {
 
 // inserting a single contact into the contact list
 @Composable
-fun ListOfContacts(contacts: List<Contact>, name: () -> Unit) {
+fun ListOfContacts(contacts: List<Contact>, name: (contact: Contact) -> Unit) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
     ) {
         items(contacts) { contact ->
-            ContactItem(contact, {name()})
+            ContactItem(contact, {name(contact)})
         }
     }
 }
