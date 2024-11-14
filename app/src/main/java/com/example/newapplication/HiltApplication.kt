@@ -1,6 +1,8 @@
 package com.example.newapplication
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import com.example.newapplication.apiFiles.UserServiceApiResponse
 import dagger.Module
 import dagger.Provides
@@ -46,4 +48,12 @@ object NetworkModule {
         return retrofit.create(UserService::class.java)
     }
 
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+object LocalDataSource{
+    fun provides(context: Context): SharedPreferences {
+        return context.getSharedPreferences("Fake_Instagram", Context.MODE_PRIVATE)
+    }
 }
