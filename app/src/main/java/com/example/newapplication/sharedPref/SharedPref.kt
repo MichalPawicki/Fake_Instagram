@@ -7,10 +7,10 @@ class SharedPref @Inject constructor(private val sharedPreferences: SharedPrefer
 
     fun markAsFetched() {
         val sharedPref = sharedPreferences
-        val name = sharedPref.edit()
+        val fetchedStatus = sharedPref.edit()
 
-        name.putBoolean("random_key", true)
-        name.apply()
+        fetchedStatus.putBoolean("random_key", true)
+        fetchedStatus.apply()
 
     }
 
