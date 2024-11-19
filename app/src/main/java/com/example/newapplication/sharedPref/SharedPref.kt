@@ -1,7 +1,9 @@
 package com.example.newapplication.sharedPref
 
 import android.content.SharedPreferences
+import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
+
 
 class SharedPref @Inject constructor(private val sharedPreferences: SharedPreferences) {
 

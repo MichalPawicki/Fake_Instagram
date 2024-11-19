@@ -8,11 +8,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import javax.inject.Singleton
 
 // Downloading API data from randomuser.me
 @HiltAndroidApp
@@ -52,8 +54,19 @@ object NetworkModule {
 
 @Module
 @InstallIn(SingletonComponent::class)
-object LocalDataSource{
+object LocalDataSource {
     fun provides(context: Context): SharedPreferences {
         return context.getSharedPreferences("Fake_Instagram", Context.MODE_PRIVATE)
+    }
+}
+
+@Module
+@InstallIn(SingletonComponent::class) // Specifies that this module will be available throughout the application
+object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
     }
 }

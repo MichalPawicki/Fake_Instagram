@@ -6,17 +6,28 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.newapplication.sharedPref.SharedPref
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val userService: UserService) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val userService: UserService,
+    private val sharedPref: SharedPref //SharedPref Injection
+
+) : ViewModel() {
 
     var state: State by mutableStateOf(State())
 
     init {
+
+        val hasFetched = sharedPref.isFetched()
+        if (!hasFetched) {
+            // Mark data as fetched
+            sharedPref.markAsFetched()
+        }
         state = state.copy(list = listOfPosts.values.toList())
         viewModelScope.launch {
             println(userService.getUser())
